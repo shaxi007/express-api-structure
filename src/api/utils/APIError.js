@@ -1,9 +1,11 @@
+/* eslint-disable max-len */
 const httpStatus = require('http-status');
 
 /**
  * @extends Error
  */
 class ExtendableError extends Error {
+	// eslint-disable-next-line object-curly-newline
 	constructor({ message, errors, status, isPublic, stack }) {
 		super(message);
 		this.name = this.constructor.name;
@@ -28,6 +30,8 @@ class APIError extends ExtendableError {
 	 * @param {number} status - HTTP status code of error.
 	 * @param {boolean} isPublic - Whether the message should be visible to user or not.
 	 */
+	// eslint-disable-next-line max-len
+	// eslint-disable-next-line object-curly-newline
 	constructor({ message, errors, stack, status = httpStatus.INTERNAL_SERVER_ERROR, isPublic = false }) {
 		super({
 			message,
