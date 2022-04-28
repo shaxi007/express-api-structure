@@ -1,7 +1,8 @@
 const pg = require('pg');
+const { databaseUrl } = require('../constants');
 
 const pool = new pg.Pool({
-	connectionString: process.env.DATABASE_URL,
+	connectionString: databaseUrl,
 });
 
 async function fetch(query, ...array) {
@@ -20,6 +21,7 @@ async function fetch(query, ...array) {
 
 async function fetchAll(query, ...array) {
 	const client = await pool.connect();
+
 	try {
 		const { rows } = await client.query(query, array.length ? array : null);
 		return rows;
@@ -30,4 +32,4 @@ async function fetchAll(query, ...array) {
 	}
 }
 
-export { fetch, fetchAll };
+module.exports = { fetch, fetchAll };

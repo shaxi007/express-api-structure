@@ -1,3 +1,3 @@
-const repository = require('./mongo/mongo.repository');
+const repository = require('./pg/pg.repository');
 
 module.exports = repository;
